@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yomping in Yeovil – Membership</title>
+  <meta name="description" content="Membership benefits for frequent walkers in Yeovil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="Yomping in Yeovil home">
+      <img src="assets/images/Yomping_Boot_logo.png" alt="Yomping in Yeovil" class="logo" />
+      <span>Yomping in Yeovil</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation" role="navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <ul id="nav-menu" class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tours_autoplay.html">Tours</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="section">
+  <div class="container">
+    <h1>Membership</h1>
+    <p class="muted">Join to save on tours and get early access to special events.</p>
+    <ul class="benefits">
+      <li>10% off all tours</li>
+      <li>Members‑only sunrise and sunset walks</li>
+      <li>Priority booking for peak season</li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+    <p>© 2025 Ruta Klimas | Educational coursework project</p>
+    <a href="#top" class="back-to-top">Back to top ↑</a>
+  </div>
+</footer>
+<script>
+  // Accessible mobile nav toggle + active link highlighting
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('open');
+    });
+  }
+  const links = document.querySelectorAll('.nav-list a');
+  links.forEach(l => {
+    if (l.getAttribute('href') === location.pathname.split('/').pop()) {
+      l.classList.add('active');
+    }
+  });
+</script>
+</body>
+</html>

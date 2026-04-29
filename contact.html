@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yomping in Yeovil – Contact & Booking</title>
+  <meta name="description" content="Contact details and booking form for Yeovil tours.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="Yomping in Yeovil home">
+      <img src="assets/images/Yomping_Boot_logo.png" alt="Yomping in Yeovil" class="logo" />
+      <span>Yomping in Yeovil</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation" role="navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <ul id="nav-menu" class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tours_autoplay.html">Tours</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="section">
+  <div class="container">
+    <h1>Contact</h1>
+    <address>
+      Email: <a href="mailto:hello@yompingyeovil.example">hello@yompingyeovil.example</a><br>
+      Yeovil, Somerset
+    </address>
+  </div>
+</section>
+<section id="booking" class="section" aria-labelledby="booking-heading">
+  <div class="container">
+    <h2 id="booking-heading">Book a Tour</h2>
+    <form class="form" action="#" method="post" aria-describedby="booking-help">
+      <p id="booking-help" class="form-help">Complete the form and we’ll confirm by email within 24 hours.</p>
+      <div class="grid">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" required aria-required="true" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required aria-required="true" autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="tour">Select Tour</label>
+          <select id="tour" name="tour" required aria-required="true">
+            <option value="" disabled selected>Choose a tour…</option>
+            <option>Woodland Wander</option>
+            <option>Riverside Ramble</option>
+            <option>Viewpoint Yomp</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="date">Preferred Date</label>
+          <input id="date" name="date" type="date" required aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="guests">Number of People</label>
+          <input id="guests" name="guests" type="number" min="1" max="20" value="2" required aria-required="true" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="notes">Notes (access needs, dogs, etc.)</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Tell us anything that will help us tailor your experience"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Request Booking</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+    <p>© 2025 Ruta Klimas | Educational coursework project</p>
+    <a href="#top" class="back-to-top">Back to top ↑</a>
+  </div>
+</footer>
+<script>
+  // Accessible mobile nav toggle + active link highlighting
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('open');
+    });
+  }
+  const links = document.querySelectorAll('.nav-list a');
+  links.forEach(l => {
+    if (l.getAttribute('href') === location.pathname.split('/').pop()) {
+      l.classList.add('active');
+    }
+  });
+</script>
+</body>
+</html>

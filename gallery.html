@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yomping in Yeovil – Gallery</title>
+  <meta name="description" content="Photos and video from Yeovil walking tours.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="Yomping in Yeovil home">
+      <img src="assets/images/Yomping_Boot_logo.png" alt="Yomping in Yeovil" class="logo" />
+      <span>Yomping in Yeovil</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation" role="navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <ul id="nav-menu" class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tours_autoplay.html">Tours</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="section">
+  <div class="container">
+    <h1>Gallery</h1>
+    <div class="media-grid">
+           <!-- Photo Carousel -->
+<section class="carousel" aria-roledescription="carousel" aria-label="Walking photo highlights">
+  <div class="carousel-viewport" tabindex="0" aria-live="polite">
+    <ul class="carousel-track">
+      <!-- Slide 1 -->
+      <li class="carousel-slide is-current" aria-roledescription="slide" aria-label="1 of 7">
+        <img src="assets/images/staplehill.jpg" alt="Wooden bench and table with gravel path at view point">
+      </li>
+      <!-- Slide 2 -->
+      <li class="carousel-slide" aria-roledescription="slide" aria-label="2 of 7">
+        <img src="assets/images/ninesprings.jpg" alt="Springs in woodland with ferns">
+      </li>
+      <!-- Slide 3 -->
+      <li class="carousel-slide" aria-roledescription="slide" aria-label="3 of 7">
+        <img src="assets/images/horseinfield.jpg" alt="Horse in panoramic view">
+      </li>
+      <!-- Slide 4 -->
+      <li class="carousel-slide" aria-roledescription="slide" aria-label="4 of 7">
+        <img src="assets/images/TheDowns.jpg" alt="Panoramic view of field in Bristol">
+      </li>
+      <!-- Slide 5 -->
+      <li class="carousel-slide" aria-roledescription="slide" aria-label="5 of 7">
+        <img src="assets/images/SnuffMills.jpg" alt="Water falls and beagle">
+      </li>
+      <!-- Slide 6 -->
+      <li class="carousel-slide" aria-roledescription="slide" aria-label="6 of 7">
+        <img src="assets/images/SomersetPark.jpg" alt="Gravel trail through park">
+      </li>
+      <!-- Slide 7 -->
+      <li class="carousel-slide" aria-roledescription="slide" aria-label="7 of 7">
+        <img src="assets/images/CheddarGorge.jpg" alt="Windy road through hills">
+      </li>
+    </ul>
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-btn prev" aria-label="Previous slide" aria-controls="carousel-dots">‹</button>
+  <button class="carousel-btn next" aria-label="Next slide" aria-controls="carousel-dots">›</button>
+
+  <!-- Pagination dots -->
+  <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Choose slide">
+    <button role="tab" aria-selected="true" aria-controls="slide-1" tabindex="0"></button>
+    <button role="tab" aria-selected="false" aria-controls="slide-2" tabindex="-1"></button>
+    <button role="tab" aria-selected="false" aria-controls="slide-3" tabindex="-1"></button>
+    <button role="tab" aria-selected="false" aria-controls="slide-4" tabindex="-1"></button>
+    <!-- Pagination dots -->
+  </div>  
+</section>
+      <figure class="video-wrapper">
+        <video controls loop autoplay muted playsinline preload="metadata" aria-label="Yomping in Yeovil tour video">
+          <source src="assets/videos/hikerwalking.mp4" type="video/mp4"><p>
+             Your browser does not support the video tag.
+        </video>
+        <figcaption>Highlights from our guided walks.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+    <p>© 2025 Ruta Klimas | Educational coursework project</p>
+    <a href="#top" class="back-to-top">Back to top ↑</a>
+  </div>
+</footer>
+<script>
+  // Accessible mobile nav toggle + active link highlighting
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('open');
+    });
+  }
+  const links = document.querySelectorAll('.nav-list a');
+  links.forEach(l => {
+    if (l.getAttribute('href') === location.pathname.split('/').pop()) {
+      l.classList.add('active');
+    }
+  });
+</script>
+<script>
+(function () {
+  const viewport = document.querySelector('.carousel-viewport');
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const dots = Array.from(document.querySelectorAll('.carousel-dots [role="tab"]'));
+  if (!viewport || !track || slides.length === 0) return;
+
+  // Ensure each slide has an id to match dots' aria-controls
+  slides.forEach((slide, i) => { if (!slide.id) slide.id = `slide-${i + 1}`; });
+  dots.forEach((dot, i) => { if (slides[i]) dot.setAttribute('aria-controls', slides[i].id); });
+
+  let index = 0;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let timer = null;
+
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      const sel = i === index;
+      dot.setAttribute('aria-selected', sel ? 'true' : 'false');
+      dot.setAttribute('tabindex', sel ? '0' : '-1');
+    });
+  }
+
+  function setCurrent(newIndex, user = false) {
+    index = (newIndex + slides.length) % slides.length;
+    slides[index].scrollIntoView({
+      behavior: user ? 'smooth' : (prefersReduced ? 'auto' : 'smooth'),
+      inline: 'start', block: 'nearest'
+    });
+    updateDots();
+  }
+
+  function next() { setCurrent(index + 1); }
+  function prev() { setCurrent(index - 1); }
+
+  // Buttons
+  prevBtn?.addEventListener('click', () => { prev(); stopAutoplay(); startAutoplay(); });
+  nextBtn?.addEventListener('click', () => { next(); stopAutoplay(); startAutoplay(); });
+
+  // Dots
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { setCurrent(i, true); stopAutoplay(); startAutoplay(); });
+    dot.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { setCurrent(index - 1, true); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { setCurrent(index + 1, true); e.preventDefault(); }
+    });
+  });
+
+  // Keyboard on viewport
+  viewport.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { prev(); stopAutoplay(); startAutoplay(); }
+    if (e.key === 'ArrowRight') { next(); stopAutoplay(); startAutoplay(); }
+  });
+
+  // Track manual scroll → sync index & dots
+  let scrollTimeout;
+  track.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const left = track.scrollLeft;
+      const w = slides[0]?.getBoundingClientRect().width || track.clientWidth;
+      const approx = Math.round(left / w);
+      index = Math.max(0, Math.min(slides.length - 1, approx));
+      updateDots();
+    }, 120);
+  }, { passive: true });
+
+  // Autoplay (pause on hover/focus; disabled for reduced motion)
+  function startAutoplay() {
+    if (prefersReduced || timer) return;
+    timer = setInterval(() => {
+      viewport.classList.add('is-fading');
+      setTimeout(() => { next(); viewport.classList.remove('is-fading'); }, 100);
+    }, 4000);
+  }
+  function stopAutoplay() { if (timer) { clearInterval(timer); timer = null; } }
+
+  viewport.addEventListener('mouseenter', stopAutoplay);
+  viewport.addEventListener('mouseleave', startAutoplay);
+  viewport.addEventListener('focusin', stopAutoplay);
+  viewport.addEventListener('focusout', startAutoplay);
+
+  // Init
+  updateDots();
+  setCurrent(0);
+  window.addEventListener('load', startAutoplay);
+})();
+</script>
+</body>
+</html>

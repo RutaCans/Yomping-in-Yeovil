@@ -1,0 +1,252 @@
+
+:root{
+  --bg:#ffffff; --text:#1f2a1f; --muted:#58615a; --brand:#2c5f2d; --accent:#f0f7f1; --card:#ffffff; --shadow:0 6px 18px rgba(0,0,0,.08)
+} /*Global CSS variables defined in :root for consistent styling*/
+*{box-sizing:border-box} /*Tells browser to include padding and borders inside an element's width and height, applies to all pages*/
+html{scroll-behavior:smooth} /*Smooth page scrolling*/
+body{
+  margin:0;
+  font-family:'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+  color:var(--text); background:var(--bg)}
+   /*Typography, main font Montserrat, background is white, applies to all pages*/
+
+/* Ensures footer sits at the bottom on desktop when content is short */
+html, body { height: 100%; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+
+main { flex: 1; }
+img{
+  max-width:100%;
+  display:block} 
+  /*Makes all images automatically shrink to fit their box. all images automatically shrink to fit their box.*/
+
+.container{
+  max-width:1100px; 
+  margin-inline:auto; 
+  padding-inline:20px} 
+  /*Centres the page content and keeps everything the same width across all 5 pages.*/
+
+.muted{color:var(--muted)}
+
+/*The hidden -Skip to content link shown only on keyboard focus*/
+.skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+.skip-link:focus{left:16px; top:16px; width:auto; height:auto; background:#000; color:#fff; padding:.5rem .75rem; z-index:1000}
+
+/*Header & navigation styling. Position: sticky, the header stays visible as users scroll*/
+.site-header{background:var(--brand); color:#fff; position:sticky; top:0; z-index:10} 
+.header-inner{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:12px 0}
+.brand{display:flex; align-items:center; gap:.6rem; color:#fff; text-decoration:none; font-weight:700}
+.logo{width:36px; height:36px}
+
+/*Mobile navigation*/
+.main-nav .nav-toggle{background:#ffffff22; color:#fff; border:1px solid #ffffff55; padding:.5rem .75rem; border-radius:6px; display:none}
+.nav-list{list-style:none; display:flex; gap:1rem; margin:0; padding:0}
+.nav-list a{color:#fff; text-decoration:none; padding:.5rem .6rem; border-radius:6px}
+.nav-list a:hover, .nav-list a:focus{background:#ffffff22}
+.nav-list a.active{background:#ffffff33}
+@media (max-width:780px){
+  .main-nav .nav-toggle{display:inline-block}
+  .nav-list{position:absolute; right:20px; top:64px; background:var(--brand); flex-direction:column; padding:10px; border-radius:10px; box-shadow:var(--shadow); display:none}
+  .nav-list.open{display:flex}
+}
+/*Hero section styling*/
+.hero {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.35)
+    ),
+    url("assets/images/sheep.jpg");
+  background-size: cover;
+  background-position: 60% center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+.hero-inner{padding:96px 0; text-align:center}
+.hero h1{font-size:clamp(1.8rem, 2.8vw + 1rem, 3rem); margin:0 0 .5rem}
+.hero p{max-width:720px; margin:0 auto 1.25rem; color:#f1f6f2}
+
+/*Buttons, their shape, primary button colour, hover behaviour*/
+.btn{display:inline-block; border:0; border-radius:10px; padding:.8rem 1.1rem; text-decoration:none; font-weight:600}
+.btn-primary{background:var(--accent); color:var(--brand)}
+.btn-primary:hover{background:#e3efe5}
+
+/*Page Section Consistency, .section class ensures clean, vertical spacing, alternating backgrounds for readability*/
+.section{padding:56px 0} 
+.section:nth-of-type(even){background:#fafcfb}
+.section h1,.section h2{color:var(--brand); margin:0 0 .75rem}
+.section p{color:var(--muted)}
+
+/*Cards, tour cards, gallery cards*/
+.cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px}
+/*Tour cards in tours_autoplay.html*/
+
+.card{background:var(--card); 
+  border-radius:14px; 
+  box-shadow:var(--shadow); 
+  overflow:hidden; 
+  display:flex; 
+  flex-direction:column}
+  /*Additional cards in gallery.html*/
+  
+.card img {
+  width:100%;
+  aspect-ratio:16 / 9;
+  object-fit:cover;
+}
+
+.card-body{padding:16px}
+.card h3{margin:0 0 .4rem}
+.card .price{font-weight:700; color:var(--brand)}
+
+/*Media Grid: 2 column layout for video + photos (gallery page)*/
+@media (max-width:900px){.cards{grid-template-columns:repeat(2, 1fr)}}
+@media (max-width:620px){.cards{grid-template-columns:1fr}}
+.media-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start}
+.video-wrapper video{width:100%; border-radius:12px; box-shadow:var(--shadow)}
+.media-image{border-radius:12px; box-shadow:var(--shadow)}
+@media (max-width:780px){.media-grid{grid-template-columns:1fr}}
+.benefits{display:grid; gap:.4rem; padding-left:1.25rem}
+
+/*Booking Page, input styles, focus outline, 2 column responsive grid, HTML location contact.html*/
+.form{margin-top:.5rem}
+.form .grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:16px}
+.field{display:flex; flex-direction:column; gap:.35rem}
+label{font-weight:600}
+input, select, textarea{padding:.7rem .8rem; border:1px solid #dce3dc; border-radius:10px; font:inherit}
+input:focus, select:focus, textarea:focus{outline:3px solid #cfe7d3; border-color:#b8d6bf}
+.form-help{color:var(--muted); margin:0 0 .75rem}
+
+/*Footer Styling, footer layout, text and spacing, hover underline. HTML location <footer class="site-footer">*/
+.site-footer{background:var(--brand); color:#fff}
+.footer-inner{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:18px 0}
+.footer-inner a{color:#fff}
+.back-to-top{text-decoration:none}
+.back-to-top:hover{text-decoration:underline}
+
+/* Tours carousel section, carousel container, buttons and transitions. HTML location tours_autoplay.html and gallery.html */
+.carousel { position: relative; }
+.carousel-cards {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 40px) / 3);
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel-cards .card { scroll-snap-align: start; }
+@media (max-width: 900px) {
+  .carousel-cards { grid-auto-columns: calc((100% - 20px) / 2); }
+}
+@media (max-width: 620px) {
+  .carousel-cards { grid-auto-columns: 100%; }
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px; height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--brand);
+  box-shadow: var(--shadow);
+  font-size: 22px; font-weight: 700;
+  line-height: 40px; text-align: center;
+  cursor: pointer;
+}
+.carousel-btn:hover, .carousel-btn:focus {
+  background: #e3efe5;
+  outline: 3px solid #cfe7d3;
+}
+.carousel-btn.prev { left: -6px; }
+.carousel-btn.next { right: -6px; }
+@media (max-width: 480px) {
+  .carousel-btn { width: 36px; height: 36px; font-size: 20px; line-height: 36px; }
+}
+.carousel-cards { transition: opacity 200ms ease; }
+.carousel-cards.is-fading { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .carousel-cards { transition: none; }
+}
+/* Tours carousel ends */
+
+/* Gallery Photo Carousel */
+.carousel { position: relative; }
+
+/* Viewport: masks overflow; focusable for keyboard users */
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  outline: 0;
+}
+
+/* Track: horizontal filmstrip */
+.carousel-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Slides fill the viewport width */
+.carousel-slide { position: relative; scroll-snap-align: start; width: 100%; aspect-ratio: 16 / 9; max-height: 520px; overflow: hidden;}
+.carousel-slide img { display: block; width: 100%; height:100%; object-fit: cover; object-position: center; }
+
+/* Reusing .carousel-btn look */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px; height: 40px;
+  border: 0; border-radius: 999px;
+  background: var(--accent); color: var(--brand);
+  box-shadow: var(--shadow);
+  font-size: 22px; font-weight: 700;
+  line-height: 40px; text-align: center;
+  cursor: pointer;
+}
+.carousel-btn:hover, .carousel-btn:focus {
+  background: #e3efe5;
+  outline: 3px solid #cfe7d3;
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+@media (max-width: 480px) {
+  .carousel-btn { width: 36px; height: 36px; font-size: 20px; line-height: 36px; }
+}
+
+/* Pagination dots */
+.carousel-dots {
+  display: flex; gap: 8px; justify-content: center; align-items: center;
+  margin-top: 10px;
+}
+.carousel-dots [role="tab"] {
+  width: 10px; height: 10px; border-radius: 999px;
+  border: 2px solid var(--brand); background: transparent;
+  padding: 0; cursor: pointer;
+}
+.carousel-dots [role="tab"][aria-selected="true"] { background: var(--brand); }
+.carousel-dots [role="tab"]:focus-visible {
+  outline: 3px solid #cfe7d3; outline-offset: 2px;
+}
+
+/* Optional: subtle fade if JS toggles it */
+.carousel-viewport.is-fading .carousel-track { transition: opacity 180ms ease; opacity: 0.85; }
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { scroll-behavior: auto; }
+  .carousel-viewport.is-fading .carousel-track { transition: none; opacity: 1; }
+}

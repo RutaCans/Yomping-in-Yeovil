@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yomping in Yeovil – Tours</title>
+  <meta name="description" content="Popular guided tours in Yeovil with prices and details." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Yomping in Yeovil home">
+        <img src="assets/images/Yomping_Boot_logo.png" alt="Yomping in Yeovil" class="logo" />
+        <span>Yomping in Yeovil</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation" role="navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+        <ul id="nav-menu" class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tours_autoplay.html">Tours</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="section">
+      <div class="container">
+        <h1>Tours</h1>
+        <p class="muted">Choose from our most popular guided walks.</p>
+
+        <!-- Horizontal carousel (keeps your existing card look) -->
+        <div class="carousel" aria-label="Tours carousel">
+          <button class="carousel-btn prev" aria-label="Scroll left" aria-controls="tours-carousel" title="Previous">‹</button>
+
+          <div id="tours-carousel" class="carousel-cards" role="region" aria-roledescription="carousel" aria-label="Popular tours">
+            <!-- Existing 3 tours -->
+            <article class="card">
+              <img src="assets/images/ninesprings.jpg" alt="Shaded woodland spring stream in Yeovil" />
+              <div class="card-body">
+                <h3>Ninesprings Country Park</h3>
+                <p>A gentle <time datetime="PT2H">1‑hour</time> loop through NineSpring Park’s shaded woodland, with pauses at river viewpoints and quiet clearings,
+                   makes for a peaceful, varied walk.</p>
+                <p class="price">£5 pp</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="assets/images/WitcombeValley.jpg" alt="Countryside view of iron age valley" />
+              <div class="card-body">
+                <h3>Witcombe Valley</h3>
+                <p>A quiet<time datetime="PT4H"> 2‑hour</time> scenic stroll through Witcombe Valley’s rolling Somerset countryside,
+                  with wooded slopes and open views along the way. Hike to panoramic countryside views. Moderate fitness recommended.</p>
+                <p class="price">£7 pp</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="assets/images/staplehill.jpg" alt="Walk through woods to viewpoint" />
+              <div class="card-body">
+                <h3>Staple Hill</h3>
+                <p>A Staple Hill walk is a breezy, high‑ridge circuit <time datetime="PT3H">2‑hour</time> long through quiet forestry and wide Blackdown views with picnic stops.</p>
+                <p class="price">£10 pp</p>
+              </div>
+            </article>
+
+            <!-- Added tours (reuse existing imagery so nothing breaks) -->
+            <article class="card">
+              <img src="assets/images/BlaiseCastle.jpg" alt="Bird view of Blaise Castle" />
+              <div class="card-body">
+                <h3>Blaise Castle</h3>
+                <p>A walk around Blaise Castle is a relaxed, <time datetime="PT2H30M">2‑hour</time> family‑friendly loop through wooded valleys and open parkland, with the bonus of a dramatic folly, sweeping viewpoints,
+                   and sheltered paths that make it enjoyable in almost any weather.</p>
+                <p class="price">£10 pp</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="assets/images/SnuffMills.jpg" alt="Waterfall with beagle puppy" />
+              <div class="card-body">
+                <h3>Snuff Mills Park</h3>
+                <p> A walk at Snuff Mills follows a leafy riverside path along the River Frome, the <time datetime="PT2H">1.5‑hour</time> walk mixing old mill buildings,
+                   gentle woodland, and lively water views for a calm, easy outing.</p>
+                <p class="price">£12 pp</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="assets/images/HamHillPark1.png" alt="Panoramic view of Ham Hill Monument and blue ski" />
+              <div class="card-body">
+                <h3>Ham Hill Highlights</h3>
+                <p>A Ham Hill walk is a broad, breezy circuit <time datetime="PT3H30M">3‑hour</time> hike over golden hamstone ridges and open meadows, with big Somerset 
+                  views and easy trails that make it a relaxed, scenic outing.</p>
+                <p class="price">£10 pp</p>
+              </div>
+            </article>
+          </div>
+
+          <button class="carousel-btn next" aria-label="Scroll right" aria-controls="tours-carousel" title="Next">›</button>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="contact.html#booking">Book a Tour</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>© 2025 Ruta Klimas \n Educational coursework project</p>
+      <a href="#top" class="back-to-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Accessible mobile nav toggle + active link highlighting
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('open');
+      });
+    }
+    const links = document.querySelectorAll('.nav-list a');
+    links.forEach(l => {
+      if (l.getAttribute('href') === location.pathname.split('/').pop()) {
+        l.classList.add('active');
+      }
+    });
+  </script>
+  <script src="carousel (1).js" defer></script>
+</body>
+</html>
