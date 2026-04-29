@@ -1,0 +1,6 @@
+
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'>
+  <rect width='128' height='128' rx='18' fill='#2c5f2d'/>
+  <path d='M28 80l16-24 16 12 24-36 16 24' stroke='#fff' stroke-width='10' fill='none' stroke-linecap='round' stroke-linejoin='round'/>
+  <text x='64' y='112' text-anchor='middle' font-family='Montserrat, Arial' font-size='18' fill='#fff'>YEOVIL</text>
+</svg>
